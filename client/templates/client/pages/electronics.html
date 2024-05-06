@@ -1,0 +1,31 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="home-title center">
+            <h1>ELECTRONICS</h1>
+        </div>
+        
+        <div class="row">
+            {% for product, price in all_products %}
+                <div class="col-md-4">
+                    <div class="card mb-4"> 
+                        <img src="{{ product.image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">€{{ price }}</p>
+                        </div>
+                    </div>
+                </div>
+        
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+            
+    </div>
+
+{% endblock content %}
