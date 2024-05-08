@@ -8,21 +8,21 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "products:home" %}">Home</a>
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url "products:home" %}">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "products:electronics" %}">Electronics</a>
+                    <a class="nav-link {% if request.path == '/category/electronics/' %}active{% endif %}" href="{% url "products:electronics" %}">Electronics</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Jewelery</a>
+                    <a class="nav-link {% if request.path == '/category/jeweleries/' %}active{% endif %}" href="{% url "products:jeweleries" %}">Jewelery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Men's Clothing</a>
+                    <a class="nav-link {% if request.path == '/category/men_clothing/' %}active{% endif %}" href="{% url "products:men_clothing" %}">Men's Clothing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Women's Clothing</a>
+                    <a class="nav-link {% if request.path == '/category/women_clothing/' %}active{% endif %}" href="{% url "products:women_clothing" %}">Women's Clothing</a>
                 </li>
             </ul>
         </div>

@@ -5,16 +5,16 @@
     <div class="container">
 
         <div class="home-title center">
-            <h1>All PRODUCTS</h1>
+            <h1>JEWELERY</h1>
         </div>
         
         <div class="row">
-            {% for product, price in all_products %}
+            {% for jewelery, price in all_jeweleries %}
                 <div class="col-md-4">
                     <div class="card mb-4"> 
-                        <img src="{{ product.image }}" class="card-img-top" alt="...">
+                        <img src="{{ jewelery.image }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ product.title }}</h5>
+                            <h5 class="card-title">{{ jewelery.title }}</h5>
                             <p class="card-text">€{{ price }}</p>
                         </div>
                     </div>
