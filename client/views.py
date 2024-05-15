@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from .data import products, eletronicos, jeweleries, men_clothing, women_clothing  # noqa: E501
+from django.urls import reverse
 
 
 def home(request):
@@ -89,3 +91,15 @@ def women_clothings(request):
         {
             'all_women_clothing': zip(women_clothing, women_clothing_price)
         })
+
+
+def product_cart(request, id):
+    product = products[id-1]
+
+    cart = []
+    cart.append(product)
+    print(cart)
+
+    messages.success(request, 'Product added to cart')
+
+    return redirect(reverse('products:product_detail', kwargs={'id': id}))

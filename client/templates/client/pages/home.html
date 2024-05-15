@@ -11,12 +11,13 @@
         <div class="row">
             {% for product, price in all_products %}
                 <div class="col-md-4">
+
                     <a href="{% url "products:product_detail" product.id %}">
-                        <div class="card mb-4"> 
+                        <div class="card mb-4 card-color"> 
                             <img src="{{ product.image }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">{{ product.title }}</h5>
-                                <p class="card-text">€{{ price }}</p>
+                                <h2 class="card-title">{{ product.title }}</h2>
+                                <h3 class="card-text">€{{ price }}</h3>
                             </div>
                         </div>
                     </a>
