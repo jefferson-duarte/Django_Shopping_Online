@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .data import products, eletronicos, jeweleries, men_clothing, women_clothing
+from .data import products, eletronicos, jeweleries, men_clothing, women_clothing  # noqa: E501
 
 
 def home(request):
@@ -13,6 +13,20 @@ def home(request):
         request,
         'client/pages/home.html', {
             'all_products': zip(products, product_price),
+        }
+    )
+
+
+def product_detail(request, id):
+    pdt_details = products[id-1]
+    price = f"{pdt_details['price']:.2f}".replace('.', ',')
+
+    return render(
+        request,
+        'client/pages/product_detail.html',
+        {
+            'pdt_details': pdt_details,
+            'price': price,
         }
     )
 

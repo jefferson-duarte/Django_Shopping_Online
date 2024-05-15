@@ -11,13 +11,16 @@
         <div class="row">
             {% for product, price in all_products %}
                 <div class="col-md-4">
-                    <div class="card mb-4"> 
-                        <img src="{{ product.image }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.title }}</h5>
-                            <p class="card-text">€{{ price }}</p>
+                    <a href="{% url "products:product_detail" product.id %}">
+                        <div class="card mb-4"> 
+                            <img src="{{ product.image }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <p class="card-text">€{{ price }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                    
                 </div>
         
                 {% if forloop.counter|divisibleby:3 and not forloop.last %}

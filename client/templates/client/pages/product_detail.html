@@ -1,0 +1,26 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="home-title center">
+            <h1>PRODUCT DETAILS</h1>
+        </div>
+        <div class="row justify-content-center">            
+            <div class="col-md-4 ">
+                <a href="#">
+                    <div class="card mb-4"> 
+                        <img src="{{ pdt_details.image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title center">{{ pdt_details.title }}</h5>
+                            <p class="card-text">{{ pdt_details.description }}</p>
+                            <p>€{{ price }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

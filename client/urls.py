@@ -9,4 +9,5 @@ urlpatterns = [
     path('category/jeweleries/', views.jewelery, name='jeweleries'),
     path('category/men_clothing/', views.men_clothings, name='men_clothing'),
     path('category/women_clothing/', views.women_clothings, name='women_clothing'),  # noqa:E501
+    path('category/product_detail/<int:id>/', views.product_detail, name='product_detail'),  # noqa:E501
 ]
