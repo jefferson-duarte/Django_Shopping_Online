@@ -180,3 +180,11 @@ a {
     background: var(--color-debug-light);
     color: var(--color-debug-dark);
 }
+
+.btn-a{
+    background: var(--color-gray-3);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--color-black);
+    font-family: var(--font-headings);
+}

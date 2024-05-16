@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from .data import products, eletronicos, jeweleries, men_clothing, women_clothing  # noqa: E501
 from django.urls import reverse
+from . models import ProductDB
 
 
 def home(request):
@@ -96,9 +97,15 @@ def women_clothings(request):
 def product_cart(request, id):
     product = products[id-1]
 
-    cart = []
-    cart.append(product)
-    print(cart)
+    cart = ProductDB(
+        product['id'],
+        product['title'],
+        product['price'],
+        product['description'],
+        product['category'],
+    )
+
+    cart.save()
 
     messages.success(request, 'Product added to cart')
 

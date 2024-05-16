@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import ProductDB
 
-# register your models here.
+
+@admin.register(ProductDB)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+        'price',
+        'description',
+        'category',
+    ]

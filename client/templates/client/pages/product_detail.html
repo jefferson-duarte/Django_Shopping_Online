@@ -9,19 +9,17 @@
         </div>
         <div class="row justify-content-center">            
             <div class="col-md-4 ">
-                <a href="{% url "products:product_cart" pdt_details.id %}">
-                    <div class="card mb-4 card-color"> 
-                        <img src="{{ pdt_details.image }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title center">{{ pdt_details.title }}</h2>
-                            <h3 class="card-text">{{ pdt_details.description }}</h3>
-                            <h4>€{{ price }}</h4>
-                        
-                            <button href="#" type="submit">ADD TO CART</button>
-                            {% include "client/partials/messages.html" %}
-                        </div>
+                <div class="card mb-4 card-color"> 
+                    <img src="{{ pdt_details.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title center">{{ pdt_details.title }}</h2>
+                        <h3 class="card-text">{{ pdt_details.description }}</h3>
+                        <h4>€{{ price }}</h4>
+                    
+                        <a class="btn-a" href="{% url "products:product_cart" pdt_details.id %}">ADD TO CART</a>
+                        {% include "client/partials/messages.html" %}
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
