@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # My Apps
     'client',
+    'register_users',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
@@ -122,9 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'base_static'
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / 'base_static'
+]
 STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
