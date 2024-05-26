@@ -3,8 +3,11 @@
 {% block content %}
 
     <div class="form-container">
-        <form class="registration-form">
+        <form class="registration-form" method='POST'>
+            {% csrf_token %}
             <h2>User Registration</h2>
+            {% include "global/partials/messages.html" %}
+
             <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" id="firstName" name="firstName" required>
