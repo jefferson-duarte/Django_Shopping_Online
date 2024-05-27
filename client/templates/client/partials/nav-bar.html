@@ -26,12 +26,19 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/category/women_clothing/' %}active{% endif %}" href="{% url "products:women_clothing" %}">Women's Clothing</a>
                     </li>
+                    <li class="nav-item">
+                        <form action="{% url "register_users:logout_user" %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="username" value="{{ request.user.username }}">
+                            <button class="nav-link btn-logout" type="submit">Logout</button>
+                        </form>
+                    </li>
                 {% else  %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url "register_users:register" %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url "products:home" %}">Login</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url "register_users:login_user" %}">Login</a>
                     </li>
                 {% endif %}
             </ul>

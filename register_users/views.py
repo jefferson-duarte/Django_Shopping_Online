@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib import auth
+from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -64,4 +67,48 @@ def register(request):
         'User created with success!'
     )
 
-    return render(request, 'register_users/register_home.html')
+    return redirect(reverse('register_users:login_user'))
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            auth.login(request, user)
+            messages.add_message(
+                request,
+                constants.SUCCESS,
+                'Login success!'
+            )
+
+            return redirect(reverse('products:home'))
+
+        messages.add_message(
+            request,
+            constants.ERROR,
+            'Credentials invalid.'
+        )
+    return render(request, 'register_users/login_register.html')
+
+
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
+def logout_user(request):
+    if not request.POST:
+        messages.error(request, 'Invalid logout request.')
+        return redirect(reverse('register_users:login_user'))
+
+    if request.POST.get('username') != request.user.username:
+        messages.error(request, 'Invalid logout user.')
+        return redirect(reverse('register_users:login_user'))
+
+    auth.logout(request)
+
+    messages.success(request, 'Logged out successfully.')
+    return redirect(reverse('register_users:login_user'))

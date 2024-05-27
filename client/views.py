@@ -3,8 +3,13 @@ from django.shortcuts import render, redirect
 from .data import products, eletronicos, jeweleries, men_clothing, women_clothing  # noqa: E501
 from django.urls import reverse
 from . models import ProductDB
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def home(request):
     product_price = []
 
@@ -20,6 +25,10 @@ def home(request):
     )
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def product_detail(request, id):
     pdt_details = products[id-1]
     price = f"{pdt_details['price']:.2f}".replace('.', ',')
@@ -34,6 +43,10 @@ def product_detail(request, id):
     )
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def electronics(request):
     electronicos_price = []
 
@@ -49,6 +62,10 @@ def electronics(request):
         })
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def jewelery(request):
     jeweleries_price = []
 
@@ -64,6 +81,10 @@ def jewelery(request):
         })
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def men_clothings(request):
     men_clothing_price = []
 
@@ -79,6 +100,10 @@ def men_clothings(request):
         })
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def women_clothings(request):
     women_clothing_price = []
 
@@ -94,6 +119,10 @@ def women_clothings(request):
         })
 
 
+@login_required(
+    login_url='register_users:login_user',
+    redirect_field_name='next'
+)
 def product_cart(request, id):
     product = products[id-1]
 

@@ -14,38 +14,156 @@
     width: 100%;
     max-width: 400px;
 }
+
 .registration-form h2 {
     margin-bottom: 15px;
     text-align: center;
 }
+
 .form-group {
     margin-bottom: 15px;
 }
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
 }
+
 .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .form-group input:focus {
     border-color: #007bff;
 }
+
 .form-group button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background: #3498db;
     border: none;
     color: white;
     border-radius: 4px;
     cursor: pointer;
+    transition: background 0.3s;
 }
+
 .form-group button:hover {
-    background-color: #0056b3;
+    background: #2980b9;
 }
+
+/* login user */
+
+
+.login-body {
+    /* height: 100%; */
+    height: 85vh;
+
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #2c3e50; */
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box {
+    width: 100%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #3498db;
+    font-size: 12px;
+}
+
+.btn-box {
+    text-align: center;
+}
+
+.btn-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #3498db;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn-box button:hover {
+    background: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    .login-box {
+        padding: 20px;
+    }
+}
+
 @media (max-width: 600px) {
     .registration-form {
         padding: 10px;

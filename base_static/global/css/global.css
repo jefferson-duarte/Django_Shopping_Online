@@ -82,6 +82,16 @@ a {
     color: var(--color-primary);
 }
 
+.btn-logout {
+    color: var(--color-white);
+    transition: all 300ms ease-in-out;
+    font-size: 25px;
+}
+
+.btn-logout:hover {
+    color: var(--color-primary);
+}
+
 .teste:focus {
     color: var(--color-black);
     font-weight: bold;
